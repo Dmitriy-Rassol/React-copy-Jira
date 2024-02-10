@@ -1,26 +1,26 @@
 const LessInput = ({
   type,
+  title,
   placeholder,
   classes,
   onChangeProps,
-  onClickProps,
   propsName,
   value,
-  refProps
+  required,
 }) => {
-
-  
   return (
-    <input
-      type={type}
-      name={propsName}
-      placeholder={placeholder}
-      className={classes}
-      value={value}
-      onChange={(e) => onChangeProps(e)}
-      onClick={onClickProps}
-      ref={refProps}
-    />
+    <label htmlFor={propsName}>
+      <span style={{ display: "block" }}>{title}:</span>
+      <input
+        required={required}
+        type={type}
+        name={propsName}
+        placeholder={placeholder}
+        className={classes}
+        value={value}
+        onChange={(e) => onChangeProps(e)}
+      />
+    </label>
   );
 };
 

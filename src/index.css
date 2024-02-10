@@ -13,6 +13,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+input , textarea, select{
+  background-color: #ffffff;
+  color:rgba(0, 0, 0, 0.87);
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+}
+textarea {
+  resize: none;
+  min-height: 80px;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
