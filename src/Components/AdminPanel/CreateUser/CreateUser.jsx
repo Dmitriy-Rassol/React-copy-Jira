@@ -1,70 +1,77 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import LessInput from "../../StateLessInputs/LessInput";
+import SelectComponent from "../../SelectComponent/SelectComponent";
 
-const CreateUser = () => {
+const CreateUser = ({propsSetUsers,propsUsers}) => {
   const [formDataUser, setFormDataUser] = useState({
-    participants: [],
+    userId : "",
+    fullName: "",
+    position: "",
+    department: "",
   });
 
-  useEffect(() => {
-    // Генерация уникального идентификатора задачи
-    // Логика здесь
-  }, []);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formDataUser);
-  };
+  const [localDepartments, setLocalDepartments] = useState([
+    "Проектирования программного обеспечения",
+    "Разработки",
+    "Внедрения и сопровождения",
+    "Тестирования и документирования",
+  ]);
 
-  const handleAddParticipant = (e) => {
+  const [localPositions, setLocalPositions] = useState([
+    "Frontend", "Backend", "Designer", "Tester",
+  ]);
+
+
+  const handleSubmit =  (e) => {
     e.preventDefault();
-    const newParticipant = {
+    const currentDate = new Date();
+    const newUserId = currentDate.getTime();
+    setFormDataUser({ ...formDataUser, userId: newUserId });
+    propsSetUsers([...propsUsers, { ...formDataUser, userId: newUserId }]);
+    setFormDataUser({
+      userId: "",
       fullName: "",
       position: "",
       department: "",
-    };
-    setFormDataUser({
-      ...formDataUser,
-      participants: [...formDataUser.participants, newParticipant],
-    });
+    })
   };
 
-  const handleParticipantChange = (index, e) => {
+  const handleParticipantChange = (e) => {
     const { name, value } = e.target;
-    const updatedParticipants = [...formDataUser.participants];
-    updatedParticipants[index][name] = value;
-    setFormDataUser({ ...formDataUser, participants: updatedParticipants });
+    setFormDataUser({ ...formDataUser, [name]: value });
   };
 
   return (
     <>
-      <button onClick={(e) => handleAddParticipant(e)}>Add Participant</button>
-      {formDataUser.participants.map((participant, index) => (
-        <form key={index} className="form">
-            <p>Участник</p>
-          <input
-            type="text"
-            name="fullName"
-            value={participant.fullName}
-            onChange={(e) => handleParticipantChange(index, e)}
-            placeholder="Full Name"
-          />
-          <input
-            type="text"
-            name="position"
-            value={participant.position}
-            onChange={(e) => handleParticipantChange(index, e)}
-            placeholder="Position"
-          />
-          <input
-            type="text"
-            name="department"
-            value={participant.department}
-            onChange={(e) => handleParticipantChange(index, e)}
-            placeholder="Department"
-          />
-
-          
-        </form>
-      ))}<button onClick={e => handleSubmit(e)} type="submit">Добавить</button>
+      <form onSubmit={(e) => handleSubmit(e)} className="form">
+        <LessInput
+          title={"ФИО исполнителя"}
+          type={"text"}
+          required={true}
+          propsName={"fullName"}
+          value={formDataUser.fullName}
+          onChangeProps={handleParticipantChange}
+        />
+        <SelectComponent
+          required={true}
+          title={"Должность"}
+          propsName={"position"}
+          value={formDataUser.position}
+          onChangeProps={handleParticipantChange}
+          propsDefaultValue={"Выберите должность"}
+          items={localPositions}
+        />
+        <SelectComponent
+          required={true}
+          title={"Подразделение"}
+          propsName={"department"}
+          value={formDataUser.department}
+          onChangeProps={handleParticipantChange}
+          propsDefaultValue={"Выберите подразделение"}
+          items={localDepartments}
+        />
+        <button type="submit">Добавить</button>
+      </form>
     </>
   );
 };

@@ -1,18 +1,52 @@
 import { useEffect, useState } from "react";
 import CreateTask from "./CreateTask/CreateTask";
-import CreateTaskSprint from "./CreateTaskSprint/CreateTaskSprint";
-import CreateUser from './CreateUser/CreateUser';
-import './AdminPanel.scss';
-const AdminPanel = () => {
- 
-  return (
-    <>
-      <CreateTask/>
-  
-       <CreateTaskSprint/>
+import CreateSprint from "./CreateTaskSprint/CreateSprint";
+import CreateUser from "./CreateUser/CreateUser";
+import "./AdminPanel.scss";
+const AdminPanel = ({
+  propsLocalTasks,
+  propsSetLocalTasks,
+  propsSetLocalUsers,
+  propsLocalUsers,
+  propLocalSprints,
+  propSetLocalSprints,
+}) => {
+  const [users, setUsers] = useState([]);
+  const [sprints, setSprints] = useState([]);
 
-       <CreateUser/>
-    </>
+  useEffect(() => {
+    const usersName = propsLocalUsers.map((user) => [user.fullName]);
+    setUsers(usersName);
+
+    const sprintsData = propLocalSprints.map((sprint) => {
+      return {
+        sprintName: sprint.sprintName,
+        sprintEndDate: sprint.sprintEndDate,
+      };
+    });
+    setSprints(sprintsData)
+    setUsers(usersName);
+  }, [propsLocalUsers,propLocalSprints]);
+
+  return (
+    <div>
+      <CreateTask
+        propsTasks={propsLocalTasks}
+        propsSetTasks={propsSetLocalTasks}
+        propsUsers={users}
+        propsSprintsData={sprints}
+      />
+
+      <CreateSprint
+        propSprints={propLocalSprints}
+        propSetSprints={propSetLocalSprints}
+      />
+
+      <CreateUser
+        propsSetUsers={propsSetLocalUsers}
+        propsUsers={propsLocalUsers}
+      />
+    </div>
   );
 };
 

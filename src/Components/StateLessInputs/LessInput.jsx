@@ -8,6 +8,17 @@ const LessInput = ({
   value,
   required,
 }) => {
+
+  const handleInputChange = (e) => {
+    if(e.target.type == 'number') {
+      if (e.target.value < 1) {
+        e.target.value = 1
+      }
+    }
+
+    onChangeProps(e)
+  }
+
   return (
     <label htmlFor={propsName}>
       <span style={{ display: "block" }}>{title}:</span>
@@ -18,7 +29,7 @@ const LessInput = ({
         placeholder={placeholder}
         className={classes}
         value={value}
-        onChange={(e) => onChangeProps(e)}
+        onChange={(e) => handleInputChange(e)}
       />
     </label>
   );

@@ -9,6 +9,7 @@ const FullInput = ({
   required,
   minLength,
   onChangeProps,
+  disabled,
 }) => {
   const handleTextareaChange = (e) => {
     const text = e.target.value;
@@ -16,6 +17,8 @@ const FullInput = ({
       onChangeProps(e);
     }
   };
+
+  
 
   const handleDateChange = (e) => {
     const today = new Date();
@@ -28,8 +31,7 @@ const FullInput = ({
 
     const formattedDate = `${year}-${month}-${day}`;
     if (formattedDate > e.target.value) {
-      console.log("Дата меньше сегодняшней");
-      return;
+      return (e.target.value = formattedDate);
     }
     onChangeProps(e);
   };
@@ -62,6 +64,7 @@ const FullInput = ({
               placeholder={placeholder}
               required={required}
               onChange={handleDateChange}
+              disabled={disabled}
             />
           </label>
         </>
@@ -90,7 +93,7 @@ const FullInput = ({
             placeholder={placeholder}
             value={value}
             required={required}
-            onChange={e => handleTextareaChange(e)}
+            onChange={(e) => handleTextareaChange(e)}
           ></textarea>
         </label>
       );

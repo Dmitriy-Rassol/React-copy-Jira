@@ -5,6 +5,7 @@ const TaskCard = ({ task }) => {
       <p>{task.description}</p>
       <p>Assignee: {task.assignee}</p>
       <p>Status: {task.status}</p>
+      <p>Sprint: {task.sprint}</p>
     </div>
   );
 };
