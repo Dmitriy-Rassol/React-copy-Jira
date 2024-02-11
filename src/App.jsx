@@ -138,7 +138,7 @@ function App() {
   useEffect(() => {
     // console.log(localUsers);
     // console.log(localSprints);
-     console.log(localTasks);
+     //console.log(localTasks);
   }, [localUsers, localSprints, localTasks]);
 
   return (
