@@ -181,6 +181,16 @@ function App() {
       sprintEndDate: "2024-03-07",
     },
   ]);
+
+  useEffect(() => {
+    teams,
+    localUsers,
+    localTasks,
+    localSprints
+  }, [teams,
+    localUsers,
+    localTasks,
+    localSprints,])
   return (
     <>
       <Navigation />
