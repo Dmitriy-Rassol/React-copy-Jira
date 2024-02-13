@@ -1,0 +1,23 @@
+.tab-buttons-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .tab-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all .2s ease-in;
+  }
+  
+  .tab-button:hover {
+    background-color: #0056b3;
+  }
+
+  .dashboard h1 {
+    font-size: 26px;
+  }

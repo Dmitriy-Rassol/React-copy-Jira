@@ -7,17 +7,17 @@ const Navigation = () => {
         <div className="navigation-menu__container">
         <div>
             <Link to="/" className="link">
-              Dashboard
+              Главная
             </Link>
           </div>
           <div>
             <Link to="/active_sprint" className="link">
-              Active Sprint
+              Активные спринты
             </Link>
           </div>
           <div>
             <Link to="/admin_panel" className="link">
-              Admin Panel
+            Панель администратора
             </Link>
           </div>
           </div>

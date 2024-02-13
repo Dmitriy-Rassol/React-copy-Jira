@@ -6,29 +6,58 @@ import AdminPanel from "./Components/AdminPanel/AdminPanel";
 import Navigation from "./Components/Navigation/Navigation";
 import { useEffect, useState } from "react";
 function App() {
+  const [teams, setTeams] = useState([
+    {
+      teamId: 1,
+      teamName: "Frontend",
+      teamColor: "green",
+    },
+    {
+      teamId: 2,
+      teamName: "Backend",
+      teamColor: "blue",
+    },
+    {
+      teamId: 3,
+      teamName: "Tester",
+      teamColor: "yellow",
+    },
+    {
+      teamId: 4,
+      teamName: "Designer",
+      teamColor: "orange",
+    },
+  ]);
+
   const [localUsers, setLocalUsers] = useState([
     {
       userId: 3243224269,
       fullName: "Рассоленко Дмитрий Васильевич",
-      position: "Frontend",
+      teamition: "Frontend",
       department: "Разработки",
     },
     {
       userId: 3243224266,
       fullName: "Ульянова Мария Владимировна",
-      position: "Tester",
+      teamition: "Tester",
       department: "Тестирования и документирования",
     },
     {
       userId: 3243224267,
       fullName: "Боровков Егор Вадимович",
-      position: "Backend",
+      teamition: "Backend",
       department: "Внедрения и сопровождения",
     },
     {
       userId: 3243224268,
       fullName: "Иванов Иван Иванович",
-      position: "Designer",
+      teamition: "Designer",
+      department: "Проектирования программного обеспечения",
+    },
+    {
+      userId: 3243224268,
+      fullName: "Петров Иван Петрович",
+      teamition: "Designer",
       department: "Проектирования программного обеспечения",
     },
   ]);
@@ -38,7 +67,7 @@ function App() {
       title: "Задача 1",
       subtitle: "Lorem ipsum dolor",
       author: "Иванов Иван Иванович",
-      assignee: "Боровков Егор Вадимович",
+      assignee: "Рассоленко Дмитрий Васильевич",
       time: 12,
       hoursEnd: 4,
       daysEnd: 1,
@@ -56,7 +85,7 @@ function App() {
       title: "Задача 2",
       subtitle: "Lorem ipsum dolor",
       author: "Рассоленко Дмитрий Васильевич",
-      assignee: "Иванов Иван Иванович",
+      assignee: "Боровков Егор Вадимович",
       time: 12,
       hoursEnd: 4,
       daysEnd: 1,
@@ -74,7 +103,7 @@ function App() {
       title: "Задача 3",
       subtitle: "Lorem ipsum dolor",
       author: "Рассоленко Дмитрий Васильевич",
-      assignee: "Боровков Егор Вадимович",
+      assignee: "Ульянова Мария Владимировна",
       time: 12,
       hoursEnd: 4,
       daysEnd: 1,
@@ -92,7 +121,7 @@ function App() {
       title: "Задача 4",
       subtitle: "Lorem ipsum dolor",
       author: "Ульянова Мария Владимировна",
-      assignee: "Боровков Егор Вадимович",
+      assignee: "Иванов Иван Иванович",
       time: 12,
       hoursEnd: 4,
       daysEnd: 1,
@@ -105,7 +134,25 @@ function App() {
       watchers: "Ульянова Мария Владимировна",
       timeToSprintEnd: "2024-02-29",
       status: "ToDo",
-    }
+    },
+    {
+      title: "Задача 5",
+      subtitle: "Lorem ipsum dolor",
+      author: "Ульянова Мария Владимировна",
+      assignee: "Петров Иван Петрович",
+      time: 12,
+      hoursEnd: 4,
+      daysEnd: 1,
+      sprint: "Sprint-2",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse voluptatibus iusto perspiciatis necessitatibus ullam libero eos odit ipsa corrupti debitis est, aspernatur ipsum fugiat, molestias doloremque quasi, ducimus voluptas vel aliquam maiores nulla incidunt saepe? Fugit sunt aliquid inventore provident?",
+      taskId: "TX-3678",
+      additionalComments:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse voluptatibus iusto perspiciatis necessitatibus ullam libero eos odit ipsa corrupti debitis est, aspernatur ipsum fugiat, molestias doloremque quasi, ducimus voluptas vel aliquam maiores nulla incidunt saepe? Fugit sunt aliquid inventore provident?",
+      watchers: "Ульянова Мария Владимировна",
+      timeToSprintEnd: "2024-02-29",
+      status: "ToDo",
+    },
   ]);
 
   const [localSprints, setLocalSprints] = useState([
@@ -134,18 +181,21 @@ function App() {
       sprintEndDate: "2024-03-07",
     },
   ]);
-
-  useEffect(() => {
-    // console.log(localUsers);
-    // console.log(localSprints);
-     //console.log(localTasks);
-  }, [localUsers, localSprints, localTasks]);
-
   return (
     <>
       <Navigation />
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route
+          path="/"
+          element={
+            <Dashboard
+              propsLocalUsers={localUsers}
+              propsTeams={teams}
+              propsLocalTasks={localTasks}
+              propLocalSprints={localSprints}
+            />
+          }
+        />
         <Route
           path="/active_sprint"
           element={

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import LessInput from "../../StateLessInputs/LessInput";
 import SelectComponent from "../../SelectComponent/SelectComponent";
+import "./CreateUser.scss";
 
-const CreateUser = ({propsSetUsers,propsUsers}) => {
+const CreateUser = ({ propsSetUsers, propsUsers }) => {
   const [formDataUser, setFormDataUser] = useState({
-    userId : "",
+    userId: "",
     fullName: "",
     position: "",
     department: "",
@@ -18,11 +19,13 @@ const CreateUser = ({propsSetUsers,propsUsers}) => {
   ]);
 
   const [localPositions, setLocalPositions] = useState([
-    "Frontend", "Backend", "Designer", "Tester",
+    "Frontend",
+    "Backend",
+    "Designer",
+    "Tester",
   ]);
 
-
-  const handleSubmit =  (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const currentDate = new Date();
     const newUserId = currentDate.getTime();
@@ -33,7 +36,7 @@ const CreateUser = ({propsSetUsers,propsUsers}) => {
       fullName: "",
       position: "",
       department: "",
-    })
+    });
   };
 
   const handleParticipantChange = (e) => {
@@ -44,6 +47,7 @@ const CreateUser = ({propsSetUsers,propsUsers}) => {
   return (
     <>
       <form onSubmit={(e) => handleSubmit(e)} className="form">
+        <h4>Добавить пользователя</h4>
         <LessInput
           title={"ФИО исполнителя"}
           type={"text"}

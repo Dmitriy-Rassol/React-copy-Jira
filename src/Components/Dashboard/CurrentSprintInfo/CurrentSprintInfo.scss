@@ -1,0 +1,42 @@
+.sprint-info {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sprint-info h2 {
+  margin-bottom: 20px;
+}
+
+.sprint-container {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.sprint-container__desc {
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #cccbcb;
+}
+
+.sprint-container h3 {
+  font-size: 14px;
+  margin-top: 15px;
+  background-color: #007bff;
+  border-radius: 5px;
+  width: max-content;
+  color: white;
+  padding: 10px;
+}
+
+.sprint-container p {
+  font-size: 12px;
+  & span {
+    font-weight: 600;
+    font-size: 14px;
+  }
+}

@@ -17,7 +17,10 @@ const CreateSprint = ({ propSetSprints, propSprints }) => {
     const currentDate = new Date();
     const newSprintId = currentDate.getTime();
     setFormDataSprint({ ...formDataSprint, sprintId: newSprintId });
-    propSetSprints([...propSprints, { ...formDataSprint, sprintId: newSprintId }]);
+    propSetSprints([
+      ...propSprints,
+      { ...formDataSprint, sprintId: newSprintId },
+    ]);
     setFormDataSprint({
       sprintId: "",
       sprintName: "",
@@ -54,6 +57,7 @@ const CreateSprint = ({ propSetSprints, propSprints }) => {
 
   return (
     <form onSubmit={(e) => handleSubmit(e)} className="form">
+      <h4>Добавить спринт</h4>
       <LessInput
         required={true}
         type={"text"}

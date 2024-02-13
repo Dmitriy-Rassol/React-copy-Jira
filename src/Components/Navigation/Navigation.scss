@@ -1,6 +1,22 @@
 .navigation-menu {
-    &__container {
-        display: flex;
-        gap: 20px;
-    }
-}
+    background-color: #007bff;
+    padding: 10px;
+  }
+  
+  .navigation-menu__container {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .link {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: all .2s ease-in;
+  }
+  
+  .link:hover {
+    background-color: #0056b3;
+    border-radius: 5px;
+    color :white;
+  }

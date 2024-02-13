@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CreateTask from "./CreateTask/CreateTask";
-import CreateSprint from "./CreateTaskSprint/CreateSprint";
+import CreateSprint from "./CreateSprint/CreateSprint";
 import CreateUser from "./CreateUser/CreateUser";
 import "./AdminPanel.scss";
 const AdminPanel = ({
@@ -24,12 +24,13 @@ const AdminPanel = ({
         sprintEndDate: sprint.sprintEndDate,
       };
     });
-    setSprints(sprintsData)
+    setSprints(sprintsData);
     setUsers(usersName);
-  }, [propsLocalUsers,propLocalSprints]);
+  }, [propsLocalUsers, propLocalSprints]);
 
   return (
-    <div>
+    <div className="admin-panel">
+      <h1>Панель администратора</h1>
       <CreateTask
         propsTasks={propsLocalTasks}
         propsSetTasks={propsSetLocalTasks}

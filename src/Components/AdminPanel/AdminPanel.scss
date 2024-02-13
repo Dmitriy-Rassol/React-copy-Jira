@@ -1,32 +1,4 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  & input {
-    width: 300px;
-  }
-
-  & select {
-    width: 312px;
-  }
-
-  & textarea {
-    width: 300px;
-  }
-
-  & label span {
-    font-weight: 600;
-    padding: 10px 0 5px;
-  }
-
-  & button {
-    margin-top: 10px;
-  }
-
-  & p {
-    width: 300px;
-    font-weight: 600;
-    margin: 5px;
-  }
+.admin-panel h1 {
+  font-size: 26px;
 }
+

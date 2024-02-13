@@ -8,30 +8,31 @@ const LessInput = ({
   value,
   required,
 }) => {
-
   const handleInputChange = (e) => {
-    if(e.target.type == 'number') {
+    if (e.target.type == "number") {
       if (e.target.value < 1) {
-        e.target.value = 1
+        e.target.value = 1;
       }
     }
 
-    onChangeProps(e)
-  }
+    onChangeProps(e);
+  };
 
   return (
-    <label htmlFor={propsName}>
-      <span style={{ display: "block" }}>{title}:</span>
-      <input
-        required={required}
-        type={type}
-        name={propsName}
-        placeholder={placeholder}
-        className={classes}
-        value={value}
-        onChange={(e) => handleInputChange(e)}
-      />
-    </label>
+    <div className="input-container">
+      <label htmlFor={propsName}>
+        <span style={{ display: "block" }}>{title}:</span>
+        <input
+          required={required}
+          type={type}
+          name={propsName}
+          placeholder={placeholder}
+          className={classes}
+          value={value}
+          onChange={(e) => handleInputChange(e)}
+        />
+      </label>
+    </div>
   );
 };
 

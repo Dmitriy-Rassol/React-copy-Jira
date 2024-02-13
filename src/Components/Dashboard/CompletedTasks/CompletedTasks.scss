@@ -1,0 +1,45 @@
+.completed-tasks {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.completed-tasks h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.task-item {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.task-title {
+  background-color: #007bff;
+  border-radius: 5px;
+  width: max-content;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.task-info {
+  margin-top: 10px;
+}
+
+.task-info div {
+  margin-bottom: 10px;
+}
+
+.task-info span {
+  font-weight: bold;
+}
+
+.task-info div:last-child {
+  margin-bottom: 0;
+}

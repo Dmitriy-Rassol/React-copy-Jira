@@ -1,11 +1,21 @@
+import "./TaskCard.scss";
+
 const TaskCard = ({ task }) => {
   return (
-    <div >
-      <h3>{task.title}</h3>
-      <p>{task.description}</p>
-      <p>Assignee: {task.assignee}</p>
-      <p>Status: {task.status}</p>
-      <p>Sprint: {task.sprint}</p>
+    <div className="task-info">
+      <div className="task-info__title">
+        <h3>{task.title}</h3>
+        <span>{task.taskId}</span>
+      </div>
+      <div className="task-info__desc">
+        <p>
+          <span>Исполнитель:</span> {task.assignee}
+        </p>
+        <p><span>Описание:</span> {task.description}</p>
+        <p>
+          <span>Спринт:</span> {task.sprint}
+        </p>
+      </div>
     </div>
   );
 };

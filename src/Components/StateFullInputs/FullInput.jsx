@@ -38,10 +38,10 @@ const FullInput = ({
   switch (localType) {
     case "datetime-local":
       return (
-        <>
+        <div className="input-container">
           <label htmlFor={propsName}>
             <span style={{ display: "block" }}>{title}:</span>
-            <input
+            <input 
               type="datetime-local"
               name={propsName}
               value={value}
@@ -50,11 +50,11 @@ const FullInput = ({
               onChange={handleDateChange}
             />
           </label>
-        </>
+        </div>
       );
     case "date":
       return (
-        <>
+        <div className="input-container">
           <label htmlFor={propsName}>
             <span style={{ display: "block" }}>{title}:</span>
             <input
@@ -67,11 +67,12 @@ const FullInput = ({
               disabled={disabled}
             />
           </label>
-        </>
+        </div>
       );
     case "password":
       return (
-        <label htmlFor={propsName}>
+        <div className="input-container">
+          <label htmlFor={propsName}>
           <span style={{ display: "block" }}>{title}:</span>
           <input
             name={propsName}
@@ -82,10 +83,12 @@ const FullInput = ({
             onChange={(e) => onChangeProps(e)}
           />
         </label>
+        </div>
       );
     case "textarea":
       return (
-        <label htmlFor={propsName}>
+        <div className="input-container">
+          <label htmlFor={propsName}>
           <span style={{ display: "block" }}>{title}:</span>
           <textarea
             minLength={40}
@@ -96,6 +99,7 @@ const FullInput = ({
             onChange={(e) => handleTextareaChange(e)}
           ></textarea>
         </label>
+        </div>
       );
   }
 };
