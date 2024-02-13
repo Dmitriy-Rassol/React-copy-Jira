@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import LessInput from "../../StateLessInputs/LessInput";
 import FullInput from "../../StateFullInputs/FullInput";
 import SelectComponent from "../../SelectComponent/SelectComponent";
-const CreateSprint = ({ propSetSprints, propSprints }) => {
+import "./CreateSprint.scss";
+const CreateSprint = ({ propSetSprints, propSprints, propsModalActive }) => {
   const [formDataSprint, setFormDataSprint] = useState({
     sprintId: "",
     sprintName: "",
@@ -29,6 +30,7 @@ const CreateSprint = ({ propSetSprints, propSprints }) => {
       sprintStartDate: "",
       sprintEndDate: "",
     });
+    propsModalActive(false);
   };
 
   const setSprintEnd = () => {
@@ -56,7 +58,7 @@ const CreateSprint = ({ propSetSprints, propSprints }) => {
   };
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)} className="form">
+      <form onSubmit={(e) => handleSubmit(e)} className="form">
       <h4>Добавить спринт</h4>
       <LessInput
         required={true}

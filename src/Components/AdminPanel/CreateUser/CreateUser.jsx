@@ -3,7 +3,7 @@ import LessInput from "../../StateLessInputs/LessInput";
 import SelectComponent from "../../SelectComponent/SelectComponent";
 import "./CreateUser.scss";
 
-const CreateUser = ({ propsSetUsers, propsUsers }) => {
+const CreateUser = ({ propsSetUsers, propsUsers, propsModalActive }) => {
   const [formDataUser, setFormDataUser] = useState({
     userId: "",
     fullName: "",
@@ -37,6 +37,7 @@ const CreateUser = ({ propsSetUsers, propsUsers }) => {
       position: "",
       department: "",
     });
+    propsModalActive(false);
   };
 
   const handleParticipantChange = (e) => {

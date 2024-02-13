@@ -3,6 +3,11 @@
   line-height: 1.5;
   font-weight: 400;
 }
+
+body.modal-open {
+  overflow: hidden;
+}
+
 .input-container {
   margin-bottom: 0px;
 
