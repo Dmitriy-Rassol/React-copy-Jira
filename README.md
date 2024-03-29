@@ -1,4 +1,4 @@
-# [Jira панель](https://dmitriy-rassol.github.io/React-copy-Jira/)
+# [Jira панель](https://dmitriy-rassol.github.io/React-copy-Jira/active_sprint)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
