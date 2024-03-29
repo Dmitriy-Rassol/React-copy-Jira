@@ -1,4 +1,4 @@
-# React + Vite
+# [Jira панель](https://dmitriy-rassol.github.io/React-copy-Jira/)
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
